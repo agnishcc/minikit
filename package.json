@@ -1,7 +1,7 @@
 {
-  "name": "minikit",
+  "name": "@agnishc/minikit",
   "description": "🛠️ Minikit: Streamlined Utility Toolkit for TypeScript and JavaScript",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Agnish Chakraborty<agnishc.dev@gmail.com>",
   "bugs": "https://github.com/agnishcc/minikit/issues",
