@@ -1,0 +1,73 @@
+{
+  "name": "minikit",
+  "description": "🛠️ Minikit: Streamlined Utility Toolkit for TypeScript and JavaScript",
+  "version": "0.1.1",
+  "license": "MIT",
+  "author": "Agnish Chakraborty<agnishc.dev@gmail.com>",
+  "bugs": "https://github.com/agnishcc/minikit/issues",
+  "repository": "git@github.com:agnishcc/minikit.git",
+  "prettier": "prettier-config-whatskit",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "yarn run build",
+    "versionup:patch": "yarn version patch && yarn run commit-version",
+    "versionup:minor": "yarn version minor && yarn run commit-version",
+    "versionup:major": "yarn version major && yarn run commit-version",
+    "commit-version": "git add . && git commit -m 'chore(release): publish'",
+    "clean": "rimraf coverage dist build tmp node_modules yarn.lock",
+    "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts-resolve",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "devDependencies": {
+    "@types/got": "^9.6.12",
+    "@types/jest": "~29.5.2",
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "~5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "@vercel/ncc": "^0.36.1",
+    "@whatskit/cross-env": "^0.1.0",
+    "@whatskit/kill-port": "^0.1.0",
+    "@whatskit/rimraf": "^0.1.1",
+    "eslint": "~8.42.0",
+    "eslint-config-prettier": "~8.8.0",
+    "eslint-plugin-jest": "~27.2.1",
+    "jest": "~29.5.0",
+    "prettier": "~2.8.8",
+    "prettier-config-whatskit": "^0.4.0",
+    "ts-jest": "~29.1.0",
+    "tsup": "7.0.0",
+    "tsutils": "~3.21.0",
+    "typescript": "~5.1.3"
+  },
+  "eslintIgnore": [
+    "src/**/*.test.tsx",
+    "lib/*",
+    "docs/*",
+    "dist/*",
+    "build/*",
+    "coverage/*",
+    "fixtures/*",
+    "custom/*",
+    "pages/*",
+    "umd/*"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">= 16.13"
+  },
+  "packageManager": "yarn@3.6.0"
+}
